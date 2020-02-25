@@ -1,0 +1,23 @@
+{% extends "admin-site/base.html" %}
+
+{% block title %} Home - Trang chủ {% endblock%}
+
+{% block content %}
+{% load static %}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <h1> Xin chào {{user.username}} !</h1>
+            <p>Last login: {{user.last_login}}</p>
+            <p>Thông tin User name from database</p>
+
+        </div>
+        <div class="card">
+            <form method="post">{% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hospitalapp.apps.HospitalappConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -119,7 +121,33 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Khai báo bảng User mặc định ở app profiles
+AUTH_USER_MODEL = 'hospitalapp.User'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.0/howto/static-files/
+
+#
+
+
+
+try:
+    from my_project.local_settings import *
+except ImportError:
+    pass
+
+LOGIN_URL = '/login/'
+try:
+    from my_project.local_settings import *
+except ImportError:
+    pass
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)

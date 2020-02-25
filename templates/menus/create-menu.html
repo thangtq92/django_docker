@@ -1,0 +1,36 @@
+<!-- posts/templates/posts/create-post.html -->
+
+{% extends "admin-site/base.html" %}
+
+{% block title %}
+{#    Create Menu | {{ block.super }}#}
+{% endblock title %}
+
+{% block content %}
+    <h4><small>Create Menu</small></h4>
+    <hr>
+    <div class="card-body">
+        <div class="table-responsive">
+            <form action="{% url 'create-menu' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="comment">Name<span style="color: red">*</span> :</label>
+                    <input type="text" class="form-control" rows="5" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Descriptions<span style="color: red">*</span> :</label>
+                    <input type="text" class="form-control" rows="5" name="description" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Descriptions<span style="color: red">*</span> :</label>
+                    <input type="number" class="form-control" rows="5" name="status" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment">ID Parent<span style="color: red">*</span> :</label>
+                    <textarea class="form-control" rows="5" name="id_parent" required></textarea>
+                </div>
+                <button class="btn btn-secondary" type="submit">Create Menu</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

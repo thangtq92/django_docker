@@ -1,0 +1,55 @@
+{% extends "admin-site/base.html" %}
+
+
+{% block title %} Danh sách Menu {% endblock %}
+
+{% block content %}
+    {% load static %}
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="header-title mb-3">Recent Courses</h4>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Tên</th>
+                                <th>Mô tả</th>
+                                <th>Mô tả ngắn</th>
+                                <th>Số bài học</th>
+                                <th>Đường dẫn ảnh</th>
+                                <th>Tiêu đề</th>
+                                <th>Danh mục</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ object.id }}</td>
+                                <td>{{ object.name }}</td>
+                                <td>{{ object.code }}</td>
+                                <td>{{ object.slug }}</td>
+                                <td>{{ object.icon }}</td>
+                                <td>
+                                    {{ object.status }}
+                                </td>
+                                <td>{{ object.prior }}</td>
+                                <td>{{ object.id_parent }}</td>
+                                <td>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
